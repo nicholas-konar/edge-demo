@@ -2,7 +2,7 @@ import { Resolver, Query, Mutation, Args, ID } from '@nestjs/graphql'
 import { EdgesService } from './edges.service'
 // import { EdgeObject } from './entities/edge.entity'
 import { CreateEdgeInput } from './dto/create-edge.input'
-import { Edge } from 'src/db/entities/edge.entity'
+import { Edge } from './entities/edge.entity'
 
 @Resolver(() => Edge)
 export class EdgesResolver {

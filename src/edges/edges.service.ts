@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common'
 import { CreateEdgeInput } from './dto/create-edge.input'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
-import { Edge } from 'src/db/entities/edge.entity'
+import { Edge } from './entities/edge.entity'
 
 function random() {
   const min = 1e4
