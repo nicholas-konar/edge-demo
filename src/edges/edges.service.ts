@@ -3,6 +3,7 @@ import { CreateEdgeInput } from './dto/create-edge.input'
 import { InjectRepository } from '@nestjs/typeorm'
 import { Repository } from 'typeorm'
 import { Edge } from './entities/edge.entity'
+import { RabbitmqService } from 'src/rabbitmq/rabbitmq.service'
 
 function random() {
   const min = 1e4
@@ -16,9 +17,11 @@ function random() {
 
 @Injectable()
 export class EdgesService {
+
   constructor(
     @InjectRepository(Edge)
-    private edgeRepo: Repository<Edge>
+    private edgeRepo: Repository<Edge>,
+    private rabbitmqService: RabbitmqService
   ) {}
 
   async create(createEdgeInput: CreateEdgeInput): Promise<Edge> {
@@ -28,7 +31,8 @@ export class EdgesService {
         ...createEdgeInput,
       })
       .save()
-    console.log('Created new edge.', edge)
+    console.log('Created new edge in db.', edge)
+    this.rabbitmqService.publishEdge(edge)
     return edge
   }
 

@@ -7,10 +7,12 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { AppDataSource } from './datasource.config'
 import { Edge } from './edges/entities/edge.entity'
+import { RabbitmqModule } from './rabbitmq/rabbitmq.module'
 
 @Module({
   imports: [
     EdgesModule,
+    RabbitmqModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: true,
