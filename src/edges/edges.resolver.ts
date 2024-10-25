@@ -1,8 +1,7 @@
-import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
+import { Resolver, Query, Mutation, Args, ID } from '@nestjs/graphql';
 import { EdgesService } from './edges.service';
 import { Edge } from './entities/edge.entity';
 import { CreateEdgeInput } from './dto/create-edge.input';
-import { UpdateEdgeInput } from './dto/update-edge.input';
 
 @Resolver(() => Edge)
 export class EdgesResolver {
@@ -19,17 +18,7 @@ export class EdgesResolver {
   }
 
   @Query(() => Edge, { name: 'edge' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
+  findOne(@Args('id', { type: () => ID }) id: string) {
     return this.edgesService.findOne(id);
-  }
-
-  @Mutation(() => Edge)
-  updateEdge(@Args('updateEdgeInput') updateEdgeInput: UpdateEdgeInput) {
-    return this.edgesService.update(updateEdgeInput.id, updateEdgeInput);
-  }
-
-  @Mutation(() => Edge)
-  removeEdge(@Args('id', { type: () => Int }) id: number) {
-    return this.edgesService.remove(id);
   }
 }

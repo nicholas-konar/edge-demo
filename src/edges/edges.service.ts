@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { CreateEdgeInput } from './dto/create-edge.input';
-import { UpdateEdgeInput } from './dto/update-edge.input';
 
 @Injectable()
 export class EdgesService {
@@ -12,15 +11,15 @@ export class EdgesService {
     return `This action returns all edges`;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} edge`;
   }
 
-  update(id: number, updateEdgeInput: UpdateEdgeInput) {
+  update(id: string, updateEdgeInput: UpdateEdgeInput) {
     return `This action updates a #${id} edge`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} edge`;
   }
 }

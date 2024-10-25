@@ -1,7 +1,13 @@
-import { InputType, Int, Field } from '@nestjs/graphql';
+import { InputType, Field } from '@nestjs/graphql';
 
 @InputType()
 export class CreateEdgeInput {
-  @Field(() => Int, { description: 'Example field (placeholder)' })
-  exampleField: number;
+  @Field()
+  nodeOneAlias: string;
+
+  @Field()
+  nodeTwoAlias: string;
+
+  @Field()
+  capacity: string;
 }

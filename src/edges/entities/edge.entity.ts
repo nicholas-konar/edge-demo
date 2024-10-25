@@ -11,8 +11,8 @@ export class Edge {
   @Field()
   updatedAt: string;
 
-  @Field(() => Int)
-  capacity: number;
+  @Field()
+  capacity: string;
 
   @Field()
   nodeOneAlias: string;
