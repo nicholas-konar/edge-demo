@@ -1,28 +1,18 @@
-import {
-  Resolver,
-  Query,
-  Mutation,
-  Args,
-  ID,
-} from '@nestjs/graphql'
+import { Resolver, Query, Mutation, Args, ID } from '@nestjs/graphql'
 import { EdgesService } from './edges.service'
 import { Edge } from './entities/edge.entity'
 import { CreateEdgeInput } from './dto/create-edge.input'
 
 @Resolver(() => Edge)
 export class EdgesResolver {
-  constructor(
-    private readonly edgesService: EdgesService
-  ) {}
+  constructor(private readonly edgesService: EdgesService) {}
 
   @Mutation(() => Edge)
   createEdge(
     @Args('createEdgeInput')
     createEdgeInput: CreateEdgeInput
   ) {
-    return this.edgesService.create(
-      createEdgeInput
-    )
+    return this.edgesService.create(createEdgeInput)
   }
 
   @Query(() => [Edge], {
