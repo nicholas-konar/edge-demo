@@ -17,7 +17,6 @@ function random() {
 
 @Injectable()
 export class EdgesService {
-
   constructor(
     @InjectRepository(Edge)
     private edgeRepo: Repository<Edge>,

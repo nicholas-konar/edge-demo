@@ -1,5 +1,6 @@
 import { Injectable, OnModuleInit } from '@nestjs/common'
 import { Channel, Connection, connect } from 'amqplib'
+import { Edge } from 'src/edges/entities/edge.entity'
 
 @Injectable()
 export class RabbitmqService implements OnModuleInit {
@@ -15,7 +16,7 @@ export class RabbitmqService implements OnModuleInit {
       await this.channel.consume(this.queueName, this.handleEdge.bind(this))
       console.log('RabbitMQ initialized.')
     } catch (e) {
-      console.error('Failed to establish RabbitMQ connection\n', e)
+      console.error('Failed to establish RabbitMQ connection due to', e)
     }
   }
 
@@ -30,8 +31,19 @@ export class RabbitmqService implements OnModuleInit {
   }
 
   private async handleEdge(msg: any) {
-    const edge = msg.content.toString()
-    this.channel.ack(msg)
-    console.log('Handler triggered', msg, edge)
+    if (!msg) return
+    try {
+      const data = JSON.parse(msg.content.toString())
+      const edge = await Edge.findOneByOrFail({ id: data.id })
+      console.log(
+        `New channel between ${edge.node1_alias} and ${edge.node2_alias} with a capacity of ${edge.capacity} has been created.`
+      )
+      edge.node1_alias += '-updated'
+      edge.node2_alias += '-updated'
+      await edge.save()
+      this.channel.ack(msg)
+    } catch (e) {
+      console.error('Failed to handle edge in RabbitMQ due to', e)
+    }
   }
 }
