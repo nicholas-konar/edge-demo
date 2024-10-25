@@ -14,7 +14,12 @@ function random() {
 export class EdgesService {
   create(createEdgeInput: CreateEdgeInput) {
     console.log('Creating new edge in db.')
-    return 'This action adds a new edge'
+    return {
+        id: '123',
+        capacity: random(),
+        nodeOneAlias: 'test1',
+        nodeTwoAlias: 'test2',
+      }
   }
 
   findAll() {
