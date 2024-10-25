@@ -1,4 +1,5 @@
 import { DataSource } from 'typeorm'
+import { Edge } from './edges/entities/edge.entity'
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
@@ -7,7 +8,7 @@ export const AppDataSource = new DataSource({
   username: 'postgres',
   password: 'postgres',
   database: 'demo_db',
-  entities: ['src/db/entity/**/*.ts'],
+  entities: [Edge],
   subscribers: [],
   synchronize: true,
   logging: true,
