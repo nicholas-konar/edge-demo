@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { EdgesService } from '../src/edges/edges.service'
+import { EdgesService } from '../src/graphql/edges.service'
 
 describe('EdgesService', () => {
   let service: EdgesService

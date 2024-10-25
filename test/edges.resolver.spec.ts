@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { EdgesResolver } from '../src/edges/edges.resolver'
-import { EdgesService } from '../src/edges/edges.service'
+import { EdgesResolver } from '../src/graphql/edges.resolver'
+import { EdgesService } from '../src/graphql/edges.service'
 
 describe('EdgesResolver', () => {
   let resolver: EdgesResolver
