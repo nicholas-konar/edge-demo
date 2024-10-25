@@ -5,8 +5,8 @@ import { AppService } from './app.service'
 import { EdgesModule } from './graphql/edges.module'
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { AppDataSource } from './db/datasource.config'
-import { Edge } from './db/entities/edge.entity'
+import { AppDataSource } from './datasource.config'
+import { Edge } from './graphql/entities/edge.entity'
 
 @Module({
   imports: [

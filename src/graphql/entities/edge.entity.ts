@@ -8,6 +8,8 @@ import {
   BaseEntity,
 } from 'typeorm'
 
+// Uses decorators for both typeorm & graphql
+
 @Entity()
 @ObjectType()
 export class Edge extends BaseEntity {
