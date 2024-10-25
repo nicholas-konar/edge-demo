@@ -2,11 +2,11 @@ import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-import { EdgesModule } from './graphql/edges.module'
+import { EdgesModule } from './edges/edges.module'
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { AppDataSource } from './datasource.config'
-import { Edge } from './graphql/entities/edge.entity'
+import { Edge } from './edges/entities/edge.entity'
 
 @Module({
   imports: [
