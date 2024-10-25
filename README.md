@@ -1,8 +1,8 @@
 # edge-demo
 ## Getting started
 - In a new terminal, clone the repo and `cd` to the project root
-- Run `docker-compose up --build`
-- In your browser, head to `http://localhost:3000/graphql` to access the GraphQl playground. (Query/mutation examples below)
+- Run `docker-compose up --build` (to teardown, run `docker-compose down -v`)
+- In your browser, head to `http://localhost:3000/graphql` to access the GraphQL playground. (Query/mutation examples below)
 - Monitor your terminal to verify logging output
 
 
