@@ -2,8 +2,11 @@ import { Module } from '@nestjs/common'
 import { GraphQLModule } from '@nestjs/graphql'
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
-import { EdgesModule } from './edges/edges.module'
+import { EdgesModule } from './graphql/edges.module'
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
+import { TypeOrmModule } from '@nestjs/typeorm'
+import { AppDataSource } from './db/datasource.config'
+import { Edge } from './db/entities/edge.entity'
 
 @Module({
   imports: [
@@ -12,6 +15,10 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo'
       driver: ApolloDriver,
       autoSchemaFile: true,
       playground: true,
+    }),
+    TypeOrmModule.forRoot({
+      ...AppDataSource.options,
+      entities: [Edge],
     }),
   ],
   controllers: [AppController],
