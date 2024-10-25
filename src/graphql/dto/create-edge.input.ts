@@ -3,11 +3,8 @@ import { InputType, Field } from '@nestjs/graphql'
 @InputType()
 export class CreateEdgeInput {
   @Field()
-  nodeOneAlias: string
+  node1_alias: string
 
   @Field()
-  nodeTwoAlias: string
-
-  @Field()
-  capacity: string
+  node2_alias: string
 }
