@@ -14,12 +14,4 @@ export class EdgesService {
   findOne(id: string) {
     return `This action returns a #${id} edge`;
   }
-
-  update(id: string, updateEdgeInput: UpdateEdgeInput) {
-    return `This action updates a #${id} edge`;
-  }
-
-  remove(id: string) {
-    return `This action removes a #${id} edge`;
-  }
 }
