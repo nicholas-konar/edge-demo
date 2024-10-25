@@ -1,13 +1,16 @@
-import { InputType, Field } from '@nestjs/graphql';
+import {
+  InputType,
+  Field,
+} from '@nestjs/graphql'
 
 @InputType()
 export class CreateEdgeInput {
   @Field()
-  nodeOneAlias: string;
+  nodeOneAlias: string
 
   @Field()
-  nodeTwoAlias: string;
+  nodeTwoAlias: string
 
   @Field()
-  capacity: string;
+  capacity: string
 }

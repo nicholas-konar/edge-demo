@@ -1,4 +1,9 @@
-import { ObjectType, Field, ID, Int } from '@nestjs/graphql';
+import {
+  ObjectType,
+  Field,
+  ID,
+  Int,
+} from '@nestjs/graphql'
 
 @ObjectType()
 export class Edge {
@@ -6,18 +11,17 @@ export class Edge {
   id: string
 
   @Field()
-  createdAt: string;
+  createdAt: string
 
   @Field()
-  updatedAt: string;
+  updatedAt: string
 
   @Field()
-  capacity: string;
+  capacity: string
 
   @Field()
-  nodeOneAlias: string;
+  nodeOneAlias: string
 
   @Field()
-  nodeTwoAlias: string;
-
+  nodeTwoAlias: string
 }
